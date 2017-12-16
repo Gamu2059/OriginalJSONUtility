@@ -1,9 +1,0 @@
-{
-    "Test" : "Hoge",
-    "TestNum" : 40,
-    "TestFloat" : 3.141592,
-    "TestBool" : false,
-    "TestObjrct" : {
-        "Fu{g\"a" :"Fu\"}ga"
-    }
-}
