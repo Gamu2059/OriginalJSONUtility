@@ -1,21 +1,9 @@
-void setup() {
-    size(0, 0);
-    JsonObject json = new JsonObject();
-    try {
-        json.Load("data/test.json");
-    }
-    catch(Exception e) {
-        json.Load("data/test.json");
-    }
-    JsonArray array = new JsonArray();
-    array.AddBoolean(false);
-    array.AddString("huga \\\"huga");
-    array.AddInt(567);
-    json.SetJsonArray("444", array);
-    json.Save("data/test1.json");
-    println(json);
-}
-// ここから上は使用例です。組み込んで使用する場合は、ここから上を削除して下さい。
+/*
+ OriginalJSONUtility
+ Author : Gamu2059 (https://github.com/Gamu2059)
+ Creation Date : 2018/01/22
+ Version : 1.0.0
+*/
 public final class JsonArray extends JsonUtility {
     private ArrayList<String> _elem;
 

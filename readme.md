@@ -1,13 +1,46 @@
 # 概要
-- processingにはJsonを標準で取り扱う関数があるのに、processing.jsには無いので、統一して取り扱えるようにするために作成したユーティリティパッケージ。
-- 基本的にはprocessingのJsonObjectやJsonArrayと同じ使い方が出来ます。
+- processingとprocessing.jsで共通の処理を用いてJSONファイルを扱えるようにするために作成したプログラム。
+- 基本的にはprocessingのリファレンスに記載されているJSONObjectとJSONArrayと同様のメソッドを備えています。
 
 # 取り込み方
-- OriginalJSONUtility.pdeを自身のスケッチフォルダ直下に配置します。
-- 先頭についている使用例を含むsetup関数を取り除きます。
+- リリースページから最新版をダウンロードします。
+- 取り込みたいスケッチの中にOriginalJSONUtility.pdeを入れます。
 - 完了です！
 
-# 使用上の注意
-- 現在、作者のPCにおいて、processing.js上で実行した際にSaveメソッドが使えない現象が発生しています。
-  - 実際は、processing.js標準搭載のsaveStrings関数が機能していないだけでSaveメソッドは正常です。
-- processing.jsで実行し、かつSaveメソッドを使用する場合は、予め使用できるかどうかを確認しておくと良いです。
+# 使い方
+## Load Parse Save
+```java
+// data/test_object.json を読み込む場合
+JsonObject jsonObject = new JsonObject();
+jsonObject.Load("data/test_object.json");
+
+// data/test_array.json を読み込む場合
+JsonArray jsonArray = new JsonArray();
+jsonArray.Load("data/test_array.json");
+
+// data/output_object.json に保存する場合
+jsonObject.Save("data/output_object.json");
+
+// data/output_array.json に保存する場合
+jsonArray.Save("data/output_array.json");
+
+// 文字列からJSONObjectにパースする場合
+String objectData = "{ \"id\": 0, \"species\": \"Panthera leo\", \"name\": \"Lion\"}";
+jsonObject.Parse(objectData);
+
+// 文字列からJSONArrayｎパースする場合
+String arrayData = "[ \"Capra hircus\", \"Panthera pardus\", \"Equus zebra\" ]";
+jsonArray.Parse(arrayData);
+```
+## データの取り出し、追加など
+- [processing3のリファレンス](https://processing.org/reference/)のJSONObject, JSONArrayを参照して下さい。
+  同様のメソッドを備えています。
+
+# 著作権
+- 私 Gamu2059 に帰属します。
+
+# 利用規約
+- プログラムの改変、追加、削除は自由に行うことができます。
+- 再頒布は禁止します。
+- 利用する際は、OriginalJSONUtility.pdeの上部のコメントを削除しないようにして下さい。
+  ※削除してしまったとしても、制作者がGamu2059であることを明記してある場合は問題ありません。
